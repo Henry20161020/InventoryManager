@@ -5,18 +5,25 @@
  */
 package inventorymanager;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -55,11 +62,22 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void transact(ActionEvent event) {
         Product product=tblview_inventory.getSelectionModel().getSelectedItem();
-        Stage stage=showTransactionDialog(product);
+        Transaction transaction=new Transaction(product);
+        Stage stage=showTransactionDialog(transaction);
     }
     
-    private Stage showTransactionDialog(Product product) {
-        Stage stage=new Stage();
+    private Stage showTransactionDialog(Transaction transaction) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Transaction.fxml"));
+        Stage stage = new Stage(StageStyle.DECORATED);
+        try {
+            stage.setScene(new Scene((Pane)loader.load()));
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        TransactionController controller = loader.<TransactionController>getController();
+        controller.initdata(transaction);
+        
         return stage;
     }
     
