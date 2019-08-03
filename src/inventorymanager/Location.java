@@ -10,5 +10,5 @@ package inventorymanager;
  * @author xiaoh
  */
 public enum Location {
-    LOCATION1,LOCATION2;
+    Fruits,Vegetables,Beverages, Cleaning, Dairy;
 }

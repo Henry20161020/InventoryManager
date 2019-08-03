@@ -19,8 +19,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -39,6 +41,8 @@ public class FXMLDocumentController implements Initializable {
     private ComboBox combo_sort;
     @FXML
     private TableView<Product> tblview_inventory;
+    @FXML
+    private TableColumn column_productID,column_description,column_location,column_selling_price,column_purchasing_price,column_qty;
     
     private Inventory allInventory=new Inventory();
     private Inventory displayInventory=new Inventory();
@@ -64,6 +68,7 @@ public class FXMLDocumentController implements Initializable {
         Product product=tblview_inventory.getSelectionModel().getSelectedItem();
         Transaction transaction=new Transaction(product);
         Stage stage=showTransactionDialog(transaction);
+        stage.show();
     }
     
     private Stage showTransactionDialog(Transaction transaction) {
@@ -86,7 +91,14 @@ public class FXMLDocumentController implements Initializable {
         // TODO
         allInventory.loadFromFile("inventory.dat");
         displayInventory=allInventory;
-        display();
+        column_productID.setCellValueFactory(new PropertyValueFactory<Product, String>("productID"));
+        column_description.setCellValueFactory(new PropertyValueFactory<Product, String>("productDescription"));
+        column_location.setCellValueFactory(new PropertyValueFactory<Product, String>("location"));
+        column_selling_price.setCellValueFactory(new PropertyValueFactory<Product, String>("sellingPrice"));
+        column_purchasing_price.setCellValueFactory(new PropertyValueFactory<Product, String>("purchasingPrice"));
+        column_qty.setCellValueFactory(new PropertyValueFactory<Product, String>("qty"));
+        
+        tblview_inventory.setItems(displayInventory.getInventory());
         combo_sort.getItems().addAll(FXCollections.observableArrayList(Product.getSortKey()));
     }    
     

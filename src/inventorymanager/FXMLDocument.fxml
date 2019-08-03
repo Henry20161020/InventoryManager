@@ -15,13 +15,12 @@
       <TextField fx:id="textfield_search" layoutX="608.0" layoutY="40.0" />
       <TableView fx:id="tblview_inventory" layoutX="42.0" layoutY="117.0" prefHeight="383.0" prefWidth="826.0">
         <columns>
-          <TableColumn prefWidth="49.0" text="#" />
-          <TableColumn prefWidth="111.0" text="Product ID" />
-            <TableColumn prefWidth="151.0" text="Description" />
-            <TableColumn minWidth="2.0" prefWidth="125.0" text="Location ID" />
-            <TableColumn minWidth="0.0" prefWidth="123.0" text="Selling Price" />
-            <TableColumn minWidth="0.0" prefWidth="133.0" text="Purchasing Price" />
-            <TableColumn minWidth="0.0" prefWidth="133.0" text="On-hand Qty" />
+          <TableColumn fx:id="column_productID" prefWidth="111.0" text="Product ID" />
+            <TableColumn fx:id="column_description" prefWidth="151.0" text="Description" />
+            <TableColumn fx:id="column_location" minWidth="2.0" prefWidth="125.0" text="Location" />
+            <TableColumn fx:id="column_selling_price" minWidth="0.0" prefWidth="123.0" text="Selling Price" />
+            <TableColumn fx:id="column_purchasing_price" minWidth="0.0" prefWidth="133.0" text="Purchasing Price" />
+            <TableColumn fx:id="column_qty" minWidth="0.0" prefWidth="133.0" text="On-hand Qty" />
         </columns>
       </TableView>
       <ComboBox fx:id="combo_sort" layoutX="710.0" layoutY="84.0" onAction="#sort" prefWidth="150.0" promptText="Sort" />
