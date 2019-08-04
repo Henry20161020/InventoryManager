@@ -8,6 +8,8 @@ package inventorymanager;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +18,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import static java.util.Comparator.comparing;
 
 /**
  *
@@ -36,12 +39,12 @@ public class Inventory {
             String[] result=(scan.nextLine()).split(Pattern.quote("|"));
             inventory.add(
                     new Product(
-                            new SimpleStringProperty(result[0]),
-                            new SimpleStringProperty(result[1]),
+                            result[0],
+                            result[1],
                             Location.valueOf(result[2]),
-                            new SimpleDoubleProperty(Double.parseDouble(result[3])),
-                            new SimpleDoubleProperty(Double.parseDouble(result[4])),
-                            new SimpleDoubleProperty(Double.parseDouble(result[5]))
+                            Double.parseDouble(result[3]),
+                            Double.parseDouble(result[4]),
+                            Double.parseDouble(result[5])
                     )
             );
         }
@@ -63,7 +66,15 @@ public class Inventory {
     }
     
     public Inventory sortBy(String sortkey) {
-        Inventory result=new Inventory();
-        return result;
+        
+        return this;
+    }
+    
+    public String getNextID(){
+        inventory.sort(Comparator.comparing(Product::getProductID));
+        for (int i = 0; i < inventory.size(); i++) {
+            if (!String.valueOf(i).equals(inventory.get(i).getProductID())) return String.valueOf(i);
+        }
+        return String.valueOf(inventory.size());
     }
 }

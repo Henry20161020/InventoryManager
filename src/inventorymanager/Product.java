@@ -14,14 +14,14 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class Product {
 
-    private SimpleStringProperty productID;
-    private SimpleStringProperty productDescription;
+    private String productID;
+    private String productDescription;
     private Location location;
-    private SimpleDoubleProperty qty;
-    private SimpleDoubleProperty sellingPrice;
-    private SimpleDoubleProperty purchasingPrice;
+    private double qty;
+    private double sellingPrice;
+    private double purchasingPrice;
     
-    public Product(SimpleStringProperty productID, SimpleStringProperty productDescription, Location location, SimpleDoubleProperty qty, SimpleDoubleProperty sellingPrice, SimpleDoubleProperty purchasingPrice) {
+    public Product(String productID, String productDescription, Location location, double qty, double sellingPrice, double purchasingPrice) {
         this.productID = productID;
         this.productDescription = productDescription;
         this.location = location;
@@ -31,18 +31,18 @@ public class Product {
     }
 
     public String getProductID() {
-        return productID.get();
+        return productID;
     }
 
-    public void setProductID(SimpleStringProperty productID) {
+    public void setProductID(String productID) {
         this.productID = productID;
     }
 
     public String getProductDescription() {
-        return productDescription.get();
+        return productDescription;
     }
 
-    public void setProductDescription(SimpleStringProperty productDescription) {
+    public void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
     }
 
@@ -55,26 +55,26 @@ public class Product {
     }
 
     public double getQty() {
-        return qty.get();
+        return qty;
     }
 
-    public void setQty(SimpleDoubleProperty qty) {
+    public void setQty(double qty) {
         this.qty = qty;
     }
 
     public double getSellingPrice() {
-        return sellingPrice.get();
+        return sellingPrice;
     }
 
-    public void setSellingPrice(SimpleDoubleProperty sellingPrice) {
+    public void setSellingPrice(double sellingPrice) {
         this.sellingPrice = sellingPrice;
     }
 
     public double getPurchasingPrice() {
-        return purchasingPrice.get();
+        return purchasingPrice;
     }
 
-    public void setPurchasingPrice(SimpleDoubleProperty purchasingPrice) {
+    public void setPurchasingPrice(double purchasingPrice) {
         this.purchasingPrice = purchasingPrice;
     }
     
