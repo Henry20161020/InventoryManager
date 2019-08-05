@@ -7,6 +7,7 @@ package inventorymanager;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -51,6 +52,28 @@ public class Inventory {
         scan.close();
         return true;
     }
+    
+    public boolean writeToFile(String fileName) {
+        File file=new File(fileName);
+        PrintWriter pw=null;
+        try {
+            pw = new PrintWriter(file);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for (int i = 0; i < inventory.size(); i++) {
+            pw.printf("%s|%s|%s|%.2f|%.2f|%.2f\n", 
+                inventory.get(i).getProductID(),
+                inventory.get(i).getProductDescription(),
+                inventory.get(i).getLocation(),
+                inventory.get(i).getQty(),
+                inventory.get(i).getSellingPrice(),
+                inventory.get(i).getPurchasingPrice()
+                );
+        }
+        pw.close();
+        return true;
+    }
 
     public ObservableList<Product> getInventory() {
         return inventory;
@@ -77,4 +100,12 @@ public class Inventory {
         }
         return String.valueOf(inventory.size());
     }
+    
+    public void add(Product product) {
+        inventory.add(product);
+    }
+    public void remove(Product product) {
+        inventory.remove(product);
+    }
+    
 }

@@ -17,8 +17,8 @@
       <Button fx:id="btn_save" layoutX="308.0" layoutY="436.0" mnemonicParsing="false" text="Save" />
       <TextField fx:id="txtfield_qty" layoutX="320.0" layoutY="260.0" />
       <TextField fx:id="txtfield_price" layoutX="320.0" layoutY="332.0" />
-      <TextField fx:id="txtfield_product_id" layoutX="320.0" layoutY="115.0" />
-      <TextField fx:id="txtfield_description" layoutX="320.0" layoutY="160.0" />
-      <TextField fx:id="txtfield_location" layoutX="320.0" layoutY="213.0" />
+      <TextField fx:id="txtfield_product_id" disable="true" editable="false" layoutX="320.0" layoutY="115.0" />
+      <TextField fx:id="txtfield_description" disable="true" layoutX="320.0" layoutY="160.0" />
+      <TextField fx:id="txtfield_location" disable="true" layoutX="320.0" layoutY="213.0" />
    </children>
 </AnchorPane>

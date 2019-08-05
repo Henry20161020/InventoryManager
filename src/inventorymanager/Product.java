@@ -14,36 +14,40 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class Product {
 
-    private String productID;
-    private String productDescription;
+    private SimpleStringProperty productID=new SimpleStringProperty();
+    private SimpleStringProperty productDescription=new SimpleStringProperty();
     private Location location;
-    private double qty;
-    private double sellingPrice;
-    private double purchasingPrice;
+    private SimpleDoubleProperty qty=new SimpleDoubleProperty();
+    private SimpleDoubleProperty sellingPrice=new SimpleDoubleProperty();
+    private SimpleDoubleProperty purchasingPrice=new SimpleDoubleProperty();
     
-    public Product(String productID, String productDescription, Location location, double qty, double sellingPrice, double purchasingPrice) {
-        this.productID = productID;
-        this.productDescription = productDescription;
+    public Product(String productID, String productDescription, Location location, double qty, double sellingPrice,double purchasingPrice ) {
+        this.productID.set(productID);
+        this.productDescription.set( productDescription);
         this.location = location;
-        this.qty = qty;
-        this.sellingPrice = sellingPrice;
-        this.purchasingPrice = purchasingPrice;
+        this.qty.set(qty);
+        this.sellingPrice.set(sellingPrice);
+        this.purchasingPrice.set( purchasingPrice);
+    }
+    
+    public Product(String productID){
+        this.productID.set( productID);
     }
 
     public String getProductID() {
-        return productID;
+        return productID.get();
     }
 
     public void setProductID(String productID) {
-        this.productID = productID;
+        this.productID.set( productID);
     }
 
     public String getProductDescription() {
-        return productDescription;
+        return productDescription.get();
     }
 
     public void setProductDescription(String productDescription) {
-        this.productDescription = productDescription;
+        this.productDescription.set(productDescription);
     }
 
     public Location getLocation() {
@@ -55,27 +59,27 @@ public class Product {
     }
 
     public double getQty() {
-        return qty;
+        return qty.get();
     }
 
     public void setQty(double qty) {
-        this.qty = qty;
+        this.qty.set( qty);
     }
 
     public double getSellingPrice() {
-        return sellingPrice;
+        return sellingPrice.get();
     }
 
     public void setSellingPrice(double sellingPrice) {
-        this.sellingPrice = sellingPrice;
+        this.sellingPrice.set( sellingPrice);
     }
 
     public double getPurchasingPrice() {
-        return purchasingPrice;
+        return purchasingPrice.get();
     }
 
     public void setPurchasingPrice(double purchasingPrice) {
-        this.purchasingPrice = purchasingPrice;
+        this.purchasingPrice.set(purchasingPrice);
     }
     
     public static String[] getSortKey(){

@@ -11,4 +11,14 @@ package inventorymanager;
  */
 public enum Location {
     Fruits,Vegetables,Beverages, Cleaning, Dairy;
+    
+    public static boolean contains (String s) {
+        for (Location c : Location.values()) {
+            if (c.name().equals(s)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
