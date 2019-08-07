@@ -16,6 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
@@ -30,14 +31,14 @@ public class LoginController implements Initializable {
      * Initializes the controller class.
      */
     @FXML
-    private TextField textfield_password;
+    private PasswordField pswfield_password;
     
     @FXML
     private Button button_signin;
     
     @FXML
     private void checkPassword(ActionEvent event) throws IOException {
-        if (textfield_password.getText().equals("admin")) {
+        if (pswfield_password.getText().equals("admin")) {
             Stage stage = (Stage) button_signin.getScene().getWindow();
             stage.close();
             Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
