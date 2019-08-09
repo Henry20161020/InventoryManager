@@ -44,10 +44,10 @@ public class LoginController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
         }else {
             JOptionPane.showMessageDialog(null, "Login Failure.", "alert", JOptionPane.ERROR_MESSAGE);
-            System.exit(0);
         }
     }
     

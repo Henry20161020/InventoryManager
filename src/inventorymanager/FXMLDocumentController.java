@@ -132,6 +132,7 @@ public class FXMLDocumentController implements Initializable {
         controller.setScreenParent(this);
         controller.initdata(transaction,product);
         stage.initModality(Modality.APPLICATION_MODAL);  // Use this to make the 2nd window modal (must close 2nd window to return to main window)
+        stage.setResizable(false);
         return stage;
     }
     

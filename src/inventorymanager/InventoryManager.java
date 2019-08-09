@@ -26,7 +26,7 @@ public class InventoryManager extends Application {
         Stage loginStage=new Stage();
         loginStage.setScene(loginScene);
         loginStage.setTitle("Sign In");
-        
+        loginStage.setResizable(false);
         loginStage.show();
     }
 
