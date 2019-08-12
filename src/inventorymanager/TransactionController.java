@@ -107,7 +107,7 @@ public class TransactionController implements Initializable {
 
                 }  
                 else if  (transactionType.equals("deliver")) {
-                    if (Double.parseDouble(txtfield_price.getText())<=product.getQty()) {
+                    if (Double.parseDouble(txtfield_qty.getText())<=product.getQty()) {
                         product.setSellingPrice(Double.parseDouble(txtfield_price.getText()));   
                         product.setQty(product.getQty()-Double.parseDouble(txtfield_qty.getText()));
                     }
