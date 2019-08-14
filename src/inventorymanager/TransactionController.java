@@ -91,7 +91,7 @@ public class TransactionController implements Initializable {
         btn_save.setOnAction(e->{
             if (validate()) {
 
-
+                process=true;
                 if (transactionType.equals("receive")) {
                     product.setPurchasingPrice(Math.round((product.getPurchasingPrice()*product.getQty()
                             +Double.parseDouble(txtfield_qty.getText())*Double.parseDouble(txtfield_price.getText()))
