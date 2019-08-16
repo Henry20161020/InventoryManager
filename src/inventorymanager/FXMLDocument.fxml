@@ -6,12 +6,15 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
 <AnchorPane id="AnchorPane" onMouseClicked="#releaseFocus" prefHeight="583.0" prefWidth="884.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventorymanager.FXMLDocumentController">
     <children>
-      <Label layoutX="79.0" layoutY="33.0" prefHeight="38.0" prefWidth="134.0" text="Inventory Management" />
+      <Label layoutX="79.0" layoutY="33.0" prefHeight="38.0" prefWidth="210.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-font-family: serif;" text="Inventory Management" />
       <TextField fx:id="textfield_search" layoutX="713.0" layoutY="40.0" />
-      <TableView fx:id="tblview_inventory" layoutX="42.0" layoutY="117.0" prefHeight="383.0" prefWidth="826.0">
+      <TableView fx:id="tblview_inventory" layoutX="32.0" layoutY="117.0" prefHeight="383.0" prefWidth="826.0">
         <columns>
           <TableColumn fx:id="column_productID" text="Product ID" />
             <TableColumn fx:id="column_description" prefWidth="248.0" text="Description" />
@@ -21,10 +24,23 @@
             <TableColumn fx:id="column_qty" minWidth="0.0" prefWidth="133.0" text="On-hand Qty" />
         </columns>
       </TableView>
-      <Button fx:id="button_receive" layoutX="112.0" layoutY="529.0" mnemonicParsing="false" onAction="#transact" text="Receive" />
-      <Button fx:id="button_deliver" layoutX="325.0" layoutY="529.0" mnemonicParsing="false" onAction="#transact" text="Deliver" />
-      <Button fx:id="button_adjust" layoutX="509.0" layoutY="529.0" mnemonicParsing="false" onAction="#transact" text="Adjust" />
-      <Button fx:id="button_delete" layoutX="697.0" layoutY="529.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
       <Label layoutX="663.0" layoutY="43.0" prefHeight="18.0" prefWidth="50.0" text="Search" />
+      <GridPane layoutX="32.0" layoutY="510.0" prefHeight="38.0" prefWidth="826.0">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="button_receive" mnemonicParsing="false" onAction="#transact" text="Receive" />
+            <Button fx:id="button_deliver" mnemonicParsing="false" onAction="#transact" text="Deliver" GridPane.columnIndex="1" />
+            <Button fx:id="button_adjust" mnemonicParsing="false" onAction="#transact" text="Adjust" GridPane.columnIndex="2" />
+            <Button fx:id="button_delete" mnemonicParsing="false" onAction="#delete" text="Delete" GridPane.columnIndex="3" />
+         </children>
+      </GridPane>
     </children>
 </AnchorPane>
