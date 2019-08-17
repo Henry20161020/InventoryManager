@@ -4,21 +4,39 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
 <AnchorPane id="AnchorPane" prefHeight="527.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventorymanager.TransactionController">
    <children>
-      <Label fx:id="label_title" layoutX="149.0" layoutY="41.0" prefHeight="44.0" prefWidth="231.0" text="Label" />
-      <Label layoutX="121.0" layoutY="119.0" text="Product ID" />
-      <Label layoutX="121.0" layoutY="164.0" text="Description" />
-      <Label layoutX="121.0" layoutY="217.0" text="Location" />
-      <Label layoutX="121.0" layoutY="264.0" text="Transaction Qty" />
-      <Label layoutX="130.0" layoutY="336.0" text="Transaction Price" />
-      <Button fx:id="btn_cancel" layoutX="137.0" layoutY="436.0" mnemonicParsing="false" text="Cancel" />
-      <Button fx:id="btn_save" layoutX="308.0" layoutY="436.0" mnemonicParsing="false" text="Save" />
-      <TextField fx:id="txtfield_qty" layoutX="320.0" layoutY="260.0" />
-      <TextField fx:id="txtfield_price" layoutX="320.0" layoutY="332.0" />
-      <TextField fx:id="txtfield_product_id" disable="true" editable="false" layoutX="320.0" layoutY="115.0" />
-      <TextField fx:id="txtfield_description" disable="true" layoutX="320.0" layoutY="160.0" />
-      <TextField fx:id="txtfield_location" disable="true" layoutX="320.0" layoutY="213.0" />
+      <Label fx:id="label_title" layoutX="149.0" layoutY="41.0" prefHeight="44.0" prefWidth="231.0" styleClass="title" stylesheets="@../../main.css" text="Label" />
+      <GridPane layoutX="121.0" layoutY="115.0" prefHeight="278.0" prefWidth="379.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="103.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="Product ID" />
+            <Label text="Description" GridPane.rowIndex="1" />
+            <Label text="Location" GridPane.rowIndex="2" />
+            <Label text="Transaction Qty" GridPane.rowIndex="3" />
+            <Label text="Transaction Price" GridPane.rowIndex="4" />
+            <TextField fx:id="txtfield_qty" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtfield_price" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="txtfield_product_id" disable="true" editable="false" GridPane.columnIndex="1" />
+            <TextField fx:id="txtfield_description" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtfield_location" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <Button fx:id="btn_cancel" layoutX="369.0" layoutY="436.0" mnemonicParsing="false" text="Cancel" />
+      <Button fx:id="btn_save" layoutX="160.0" layoutY="436.0" mnemonicParsing="false" text="Save" />
    </children>
 </AnchorPane>
